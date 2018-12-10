@@ -1,7 +1,14 @@
 #include <iostream>
 #include <cmath>
+
+
 using namespace std;
 #define PI 3.14159265
+
+
+
+	
+
 
 const int twoFactorial = 2;                                //using Taylor series with factorials to determine the sine, cosine, and tangent of certain angles. Diminutized here for sake of room and lack of confusion
 const int threeFactorial = 6;
@@ -14,18 +21,38 @@ const int nineFactorial = 362880;
 
 int main()
 {
+	
 	double angle, sine, cosine, tangent, radianAngle;
 	cout << "Angle? ";
 	cin >> angle;
+	
 	cout << endl;
 	radianAngle = (PI * angle) / 180;
 	cout << "Radian Angle = " << radianAngle << endl;
-	cosine = 1 - (pow(radianAngle, 2) / twoFactorial) + (pow(radianAngle, 4) / fourFactorial) - (pow(radianAngle, 6) / sixFactorial) + (pow(radianAngle, 8) / eightFactorial);	
+	cosine = 1 - (pow(radianAngle, 2) / twoFactorial) + (pow(radianAngle, 4) / fourFactorial) - (pow(radianAngle, 6) / sixFactorial) + (pow(radianAngle, 8) / eightFactorial);
 	sine = radianAngle - (pow(radianAngle, 3) / threeFactorial) + (pow(radianAngle, 5) / fiveFactorial) - (pow(radianAngle, 7) / sevenFactorial) + (pow(radianAngle, 9) / nineFactorial);
 	tangent = sine / cosine;
+
+	if (angle <= 90 && angle > 0)
+	{
+		cout << "The angle is in Quadrant I.\n";
+	}
+	else if (angle > 90 && angle <= 180)
+	{
+		cout << "The angle is in Quadrant II. \n";
+	}
+	else if (angle > 180 && angle <= 270)
+	{
+		cout << "The angle is in Quadrant III.\n";
+	}
+	else if (angle > 270 && angle <= 360)
+	{
+		cout << "The angle is in Quadrant IV.\n";
+	}
 	cout << "Sine of " << angle << " degrees equals " << sine << endl;
 	cout << "Cosine of " << angle << " degrees equals " << cosine << endl;
 	cout << "Tangent of " << angle << " degrees equals " << tangent << endl;
 
 	return 0;
+
 }
